@@ -1,0 +1,22 @@
+{
+  "name": "@ubilabs/threejs-overlay-view-examples",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "clean": "rm -rf ./dist ./.parcel-cache",
+    "build": "npm run clean && parcel build --public-url ./ ./src/*.html",
+    "test": "prettier -c './{src,jsm}/**/*.{ts,js,html}'"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-nightly.2312",
+    "parcel": "^2.0.0-nightly.688"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.11.4",
+    "@ubilabs/threejs-overlay-view": "..",
+    "three": "^0.129.0"
+  }
+}

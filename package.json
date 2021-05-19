@@ -1,0 +1,57 @@
+{
+  "name": "@ubilabs/threejs-overlay-view",
+  "version": "0.4.1",
+  "description": "A wrapper for the Google Maps WebglOverlayView that takes care of the integration between three.js and the Google Maps JavaScript API. It lets you create a Google Maps overlays directly with three.js.",
+  "keywords": [
+    "google maps",
+    "maps",
+    "three",
+    "threejs",
+    "webgl"
+  ],
+  "author": "ubilabs GmbH <ham@ubilabs.com>",
+  "contributors": [
+    "Martin Schuhfuss <schuhfuss@ubilabs.com>",
+    "Andreas Kofler <kofler@ubilabs.com>",
+    "Martin Kleppe <kleppe@ubilabs.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ubilabs/threejs-overlay-view.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ubilabs/threejs-overlay-view/issues"
+  },
+  "homepage": "https://github.com/ubilabs/threejs-overlay-view#readme",
+  "license": "MIT",
+  "type": "module",
+  "source": "src/index.ts",
+  "exports": "./dist/threejs-overlay-view.modern.js",
+  "main": "./dist/threejs-overlay-view.js",
+  "types": "./dist/threejs-overlay-view.d.ts",
+  "module": "./dist/threejs-overlay-view.module.js",
+  "unpkg": "./dist/threejs-overlay-view.umd.js",
+  "workspaces": [
+    "./examples"
+  ],
+  "scripts": {
+    "test": "tsc -p tsconfig.json --noEmit && prettier -c './src/**/*.{ts,js}' && npm run test --workspaces",
+    "prettier": "prettier --write './src/**/*.{ts,js}'",
+    "start": "npm start --workspace examples",
+    "build": "microbundle",
+    "prepack": "npm install && npm run build"
+  },
+  "peerDependencies": {
+    "three": ">=0.125.0"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.44.5",
+    "@types/three": "^0.128.0",
+    "microbundle": "^0.13.0",
+    "prettier": "^2.3.0",
+    "typescript": "^4.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
