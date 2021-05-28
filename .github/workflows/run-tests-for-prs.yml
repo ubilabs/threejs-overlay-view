@@ -1,13 +1,14 @@
-name: Publish package
+name: Run Tests
+
 on:
-  workflow_dispatch:
   push:
-    tags:
-      - v*
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  publish:
-    name: Publish npm-package
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,6 +18,3 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm install
       - run: npm test
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_BOT_ACCESS_TOKEN }}
