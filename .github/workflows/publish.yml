@@ -6,7 +6,8 @@ on:
       - v*
 
 jobs:
-  build:
+  publish:
+    name: Publish npm-package
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
