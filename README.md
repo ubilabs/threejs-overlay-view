@@ -90,7 +90,7 @@ overlay.setMap(map);
 
 And that's it. With this, you can already add any 3D object to the map.
 
-But of course, there is a bit more to know about. In the following sections,
+Of course, there is a bit more to know about. In the following sections,
 we'll talk about the world space coordinates and the relation to
 geographic coordinates, about lifecycle hooks and implementing animated
 content, and finally about raycasting and implementing interactive elements.
