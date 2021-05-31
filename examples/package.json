@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "npm run build:index && parcel index.html",
     "clean": "rm -rf ./dist ./.parcel-cache",
-    "build": "npm run clean && parcel build --public-url ./ ./src/*.html",
-    "test": "prettier -c './{src,jsm}/**/*.{ts,js,html}'"
+    "build": "npm run build:index && npm run clean && parcel build --public-url ./ index.html",
+    "test": "prettier -c './{src,jsm}/**/*.{ts,js,html}'",
+    "build:index": "node ./scripts/writeIndexHtml"
   },
   "author": "",
   "license": "MIT",
