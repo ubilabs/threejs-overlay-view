@@ -37,7 +37,7 @@
   "scripts": {
     "test": "tsc -p tsconfig.json --noEmit && prettier -c './src/**/*.{ts,js}' && npm run test --workspaces",
     "prettier": "prettier --write './src/**/*.{ts,js}'",
-    "start": "npm start --workspace examples",
+    "start": "cd examples && npm start",
     "build": "microbundle",
     "prepack": "npm install && npm run build"
   },
