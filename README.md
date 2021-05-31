@@ -1,8 +1,8 @@
 # ThreejsOverlayView
 
-A wrapper for the `google.maps.WebglOverlayView` that takes care of the
+A wrapper for `google.maps.WebglOverlayView` that takes care of the
 integration between three.js and the Google Maps JavaScript API. It lets
-you create a Google Maps overlays directly with three.js.
+you create Google Maps overlays directly with three.js.
 
 We recommend that you first make yourself familiar with
 [the official documentation][docs] for the WebglOverlayView. The rest of the
@@ -29,7 +29,7 @@ npm install @ubilabs/threejs-overlay-view
 
 We provide a set of examples to quickly get you going. Those can be found in
 [`./examples`](./examples). They are also hosted on
-[github Pages](https://ubilabs.github.io/threejs-overlay-view).
+[GitHub Pages](https://ubilabs.github.io/threejs-overlay-view).
 
 ## Usage
 
@@ -71,7 +71,7 @@ const overlay = new ThreejsOverlayView({
 ```
 
 With both of those initialized, you can add your three.js objects to the
-scene and finally add the overlay to the map:
+scene, and finally add the overlay to the map:
 
 ```js
 import {BoxGeometry, Mesh, MeshBasicMaterial} from 'three';
@@ -90,7 +90,7 @@ overlay.setMap(map);
 
 And that's it. With this, you can already add any 3D object to the map.
 
-But of course, there is a bit more to know about. In the following sections,
+Of course, there is a bit more to know about. In the following sections,
 we'll talk about the world space coordinates and the relation to
 geographic coordinates, about lifecycle hooks and implementing animated
 content, and finally about raycasting and implementing interactive elements.
@@ -99,7 +99,7 @@ content, and finally about raycasting and implementing interactive elements.
 ### Coordinate System and Georeferencing
 
 The coordinate system that you see as world coordinates is a right-handed
-coordinate system in z-up orientation. The y-axis is pointing true north
+coordinate system in z-up orientation. The y-axis is pointing true north,
 and the x-axis is pointing east. The units are meters. So the point
 `new Vector3(0, 50, 10)` would be 10 meters above ground and 50 meters to
 the east of your specified reference point.
@@ -176,7 +176,7 @@ overlay.update = () => {
 If you want to add interactivity to any three.js content, you typically
 have to implement raycasting. We took care of that for you, and the
 ThreejsOverlayView provides a method `overlay.raycast()` for this. To make
-use of this, you first have to keep track of mouse movements in the map:
+use of this, you first have to keep track of mouse movements on the map:
 
 ```js
 import {Vector2} from 'three';
@@ -203,7 +203,7 @@ map.addListener('mousemove', (ev) => {
 ```
 
 With the mouse position being always up to date, you can then use the
-`raycast()` function in the update callback. In this example we change the
+`raycast()` function in the update callback. In this example, we change the
 color of the object under the cursor:
 
 ```js
@@ -231,19 +231,19 @@ overlay.update = () => {
 Described above is still not the complete picture, and there are some
 details left out for readability reasons.
 
-We plan to publish a full API documentation at some point in the future.
-For now please refer to the TypeScript source code or declaration files
-that contain a lot of comments.
+We plan to publish full API documentation at some point. Until then, please
+refer to the TypeScript source code or declaration files as well as our
+demos that contain a lot of comments.
 
 
 ## Contributing
 
 We are always happy to accept contributions from outside collaborators. For
 bugs or problems you encounter as well as questions, ideas and
-feature-requests, please head over to our [issue tracker][].
+feature requests, please head over to our [issue tracker][].
 
 When reporting issues, please try to be as concise as possible and provide
-an [reproducible example][] so we can quickly address the problem.
+a [reproducible example][] so we can quickly address the problem.
 
 [issue tracker]: https://github.com/ubilabs/threejs-overlay-view/issues
 [reproducible example]: https://stackoverflow.com/help/minimal-reproducible-example
@@ -253,8 +253,8 @@ an [reproducible example][] so we can quickly address the problem.
 
 If you want to contribute code to the project, excellent.
 
-Setting up a local development environment is pretty straight-forward and
-just needs nodejs to be installed on your system.
+Setting up a local development environment is pretty straightforward and
+just needs [Node.js](https://nodejs.org/) to be installed on your system.
 
 Once you have cloned the repository, run
 
@@ -264,16 +264,16 @@ npm install
 
 in the cloned directory to install all dependencies.
 
-In order to run the examples you will need to have an API-Key and MapId for
+To run the examples, you will need to have an API-Key and MapId for
 the Google Maps JavaScript API. It's easiest to store those in a file
-`.env` in the project-directory:
+`.env` in the project directory:
 
 ```sh
-GOOGLE_MAPS_API_KEY='your api key here'
-GOOGLE_MAPS_MAP_ID='your map-id'
+GOOGLE_MAPS_API_KEY='your API key here'
+GOOGLE_MAPS_MAP_ID='your map ID'
 ```
 
-Once you have that set up, you can run
+Once you have that file in place, you can run
 
 ```sh
 npm start
@@ -292,4 +292,4 @@ They can be run with
 npm run test
 ```
 
-Please make sure that all tests are passing before opening a pull-request.
+Please make sure that all tests are passing before opening a pull request.
