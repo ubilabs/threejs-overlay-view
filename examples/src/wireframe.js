@@ -57,7 +57,7 @@ async function main() {
   initScene(overlay, mapContainer).then(() => overlay.requestRedraw());
 }
 
-async function initScene(overlay, mapContainer) {
+async function initScene(overlay) {
   const scene = overlay.getScene();
 
   const wireframePath = [
