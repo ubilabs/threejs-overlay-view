@@ -83,7 +83,7 @@ async function initScene(overlay, mapContainer) {
 
     line.material.resolution.copy(overlay.getViewportSize());
     line.material.color.setHSL(
-      ((time * 0.36) / COLOR_CHANGE_DURATION) % 1,
+      ((time * 0.001) / COLOR_CHANGE_DURATION) % 1,
       0.69,
       0.5
     );
