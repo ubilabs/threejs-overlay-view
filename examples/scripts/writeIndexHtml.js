@@ -1,10 +1,13 @@
 const fs = require('fs');
 
-fs.readdir('./src', (err, demos) => {
-  if (err) console.error(err);
+fs.readdir('./src', (err, entries) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
 
-  const html = demos
-    .filter(demo => demo.endsWith('.html'))
+  const html = entries
+    .filter(entry => entry.endsWith('.html'))
     .map(demo => `<a href="./src/${demo}">${demo}</a><br>`)
     .join('');
   fs.writeFileSync('./index.html', html);
