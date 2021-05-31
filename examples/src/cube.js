@@ -1,4 +1,4 @@
-import {Mesh, MeshStandardMaterial, BoxGeometry, AxesHelper} from 'three';
+import {Mesh, MeshStandardMaterial, BoxGeometry} from 'three';
 import ThreeJSOverlayView from '@ubilabs/threejs-overlay-view';
 
 import {getMapsApiOptions, loadMapsApi} from '../jsm/load-maps-api';
@@ -8,7 +8,9 @@ const initialViewport = {
     lat: 53.5,
     lng: 10
   },
-  zoom: 5
+  tilt: 67.5,
+  heading: 60,
+  zoom: 19
 };
 
 async function main() {
@@ -17,8 +19,7 @@ async function main() {
 
   const map = new google.maps.Map(document.querySelector('#map'), {
     mapId,
-    zoom: initialViewport.zoom,
-    center: initialViewport.center
+    ...initialViewport
   });
 
   const overlay = new ThreeJSOverlayView({
@@ -29,14 +30,13 @@ async function main() {
 
   const scene = overlay.getScene();
   const cube = new Mesh(
-    new BoxGeometry(10000, 10000, 10000),
+    new BoxGeometry(20, 20, 20),
     new MeshStandardMaterial({color: 0xff0000})
   );
 
-  const cubeLocation = {lat: 53.5, lng: 10, altitude: 5000};
+  const cubeLocation = {lat: 53.5, lng: 10, altitude: 30};
   overlay.latLngAltToVector3(cubeLocation, cube.position);
 
-  scene.add(new AxesHelper(10000));
   scene.add(cube);
 }
 
