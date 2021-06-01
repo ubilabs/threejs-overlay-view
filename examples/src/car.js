@@ -10,17 +10,16 @@ import animationPathPoints from '../assets/animation-path-points.json';
 import {getMapsApiOptions, loadMapsApi} from '../jsm/load-maps-api';
 
 const ANIMATION_DURATION = 20000;
-
+const CAR_FRONT = new Vector3(-1, 0, 0);
 const initialViewport = {
   center: {
     lat: 53.55448664730988,
     lng: 10.00747908076427
   },
-  zoom: 19,
-  heading: 324,
+  zoom: 18,
+  heading: 40,
   tilt: 65
 };
-const mapContainer = document.querySelector('#map');
 
 const tmpVec3 = new Vector3();
 
@@ -37,11 +36,11 @@ async function main() {
   const overlay = new ThreeJSOverlayView(initialViewport.center);
   overlay.setMap(map);
 
-  initScene(overlay);
+  initScene(overlay, mapContainer);
   overlay.requestRedraw();
 }
 
-function initScene(overlay) {
+function initScene(overlay, mapContainer) {
   const animationPath = new CatmullRomCurve3(
     animationPathPoints.map(([lng, lat]) =>
       overlay.latLngAltToVector3({lat, lng})
@@ -78,9 +77,7 @@ function initScene(overlay) {
   scene.add(line);
 
   let car;
-  //scene.rotation.x = Math.PI / 2;
 
-  /// load and add the car model
   gltfLoader.load(CAR_MODEL_URL, gltf => {
     car = gltf.scene.getObjectByName('car');
     car.scale.setScalar(2);
@@ -102,11 +99,11 @@ function initScene(overlay) {
       animationPath.getPointAt(animationProgress, car.position);
 
       car.quaternion.setFromUnitVectors(
-        new Vector3(-1, 0, 0),
+        CAR_FRONT,
         animationPath.getTangentAt(animationProgress, tmpVec3)
       );
-
       car.rotateX(Math.PI / 2);
+
       overlay.requestRedraw();
     };
   });
