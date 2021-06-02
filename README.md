@@ -1,12 +1,12 @@
 # ThreejsOverlayView
 
-<div>
-  <img style="width: 100%" src="https://ubilabs.github.io/threejs-overlay-view/assets/readme-header.gif" />
-</div>
-
 A wrapper for `google.maps.WebglOverlayView` that takes care of the
 integration between three.js and the Google Maps JavaScript API. It lets
 you create Google Maps overlays directly with three.js.
+
+<div>
+  <img style="width: 100%" src="https://ubilabs.github.io/threejs-overlay-view/assets/readme-header.gif" />
+</div>
 
 We recommend that you first make yourself familiar with
 [the official documentation][docs] for the WebglOverlayView. The rest of the
