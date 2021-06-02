@@ -1,4 +1,4 @@
-name: Build Examples
+name: Deploy examples to gh-pages
 
 on:
   push:
