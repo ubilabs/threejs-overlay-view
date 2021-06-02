@@ -5,7 +5,7 @@ integration between three.js and the Google Maps JavaScript API. It lets
 you create Google Maps overlays directly with three.js.
 
 <div>
-  <img style="width: 100%" src="https://ubilabs.github.io/threejs-overlay-view/assets/readme-header.gif" />
+  <img style="width: 100%" src="./examples/assets/readme-header.gif" />
 </div>
 
 We recommend that you first make yourself familiar with
