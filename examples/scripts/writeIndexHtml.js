@@ -7,8 +7,8 @@ fs.readdir('./src', (err, entries) => {
   }
 
   const html = entries
-    .filter(entry => entry.endsWith('.html'))
-    .map(demo => `<a href="./src/${demo}">${demo}</a><br>`)
+    .filter(entry => entry.endsWith('.html') && entry !== 'index.html')
+    .map(demo => `<a href="./${demo}">${demo}</a><br>`)
     .join('');
-  fs.writeFileSync('./index.html', html);
+  fs.writeFileSync('./src/index.html', html);
 });
