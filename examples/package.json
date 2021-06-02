@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npm run build:index && parcel ./src/*.html",
     "clean": "rm -rf ./dist ./.parcel-cache",
-    "build": "npm run build:index && npm run clean && parcel build --public-url ./ ./src/*.html",
+    "build": "npm run build:index && npm run clean && parcel build --public-url ./ ./src/*.html && npm run copy-assets",
+    "copy-assets": "cp -r ./assets ./dist/",
     "test": "prettier -c './{src,jsm}/**/*.{ts,js,html}'",
     "build:index": "node ./scripts/write-index-html"
   },
