@@ -7,7 +7,7 @@
     "clean": "rm -rf ./dist ./.parcel-cache",
     "build": "npm run build:index && npm run clean && parcel build --public-url ./ ./src/*.html",
     "test": "prettier -c './{src,jsm}/**/*.{ts,js,html}'",
-    "build:index": "node ./scripts/writeIndexHtml"
+    "build:index": "node ./scripts/write-index-html"
   },
   "author": "",
   "license": "MIT",
