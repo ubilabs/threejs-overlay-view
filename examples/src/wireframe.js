@@ -7,8 +7,7 @@ import {
   ExtrudeGeometry,
   TextureLoader,
   MeshBasicMaterial,
-  PlaneGeometry,
-  Color
+  PlaneGeometry
 } from 'three';
 import {LineSegmentsGeometry} from 'three/examples/jsm/lines/LineSegmentsGeometry';
 import {Line2} from 'three/examples/jsm/lines/Line2.js';
