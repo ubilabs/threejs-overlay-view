@@ -1,5 +1,5 @@
 import ThreeJSOverlayView from '@ubilabs/threejs-overlay-view';
-import {AxesHelper, CatmullRomCurve3, Vector3} from 'three';
+import {CatmullRomCurve3, Vector3} from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import {Line2} from 'three/examples/jsm/lines/Line2.js';
 import {LineMaterial} from 'three/examples/jsm/lines/LineMaterial.js';
@@ -7,7 +7,6 @@ import {LineGeometry} from 'three/examples/jsm/lines/LineGeometry.js';
 import {getMapsApiOptions, loadMapsApi} from '../jsm/load-maps-api';
 
 import CAR_MODEL_URL from 'url:../assets/lowpoly-sedan.glb';
-
 
 const CAR_FRONT = new Vector3(0, 1, 0);
 
@@ -111,9 +110,7 @@ function createTrackLine(curve) {
     new LineGeometry(),
     new LineMaterial({
       color: 0x0f9d58,
-      linewidth: 5,
-      vertexColors: false,
-      dashed: false
+      linewidth: 5
     })
   );
 
@@ -128,7 +125,7 @@ function createTrackLine(curve) {
 async function loadCarModel() {
   const loader = new GLTFLoader();
 
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     loader.load(CAR_MODEL_URL, gltf => {
       const group = gltf.scene;
       const carModel = group.getObjectByName('sedan');
