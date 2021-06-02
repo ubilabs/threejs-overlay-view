@@ -1,5 +1,9 @@
 # ThreejsOverlayView
 
+<div>
+  <img style="width: 100%" src="https://ubilabs.github.io/threejs-overlay-view/assets/readme-header.gif" />
+</div>
+
 A wrapper for `google.maps.WebglOverlayView` that takes care of the
 integration between three.js and the Google Maps JavaScript API. It lets
 you create Google Maps overlays directly with three.js.
@@ -11,11 +15,10 @@ how to configure and create the map.
 
 To see what can be done with this new API, have a look at the demos we built:
 
- - [Feature Tour](https://goo.gle/maps-platform-webgl-tour)
- - [Travel App Demo](https://goo.gle/maps-platform-webgl-travel-demo)
+- [Feature Tour](https://goo.gle/maps-platform-webgl-tour)
+- [Travel App Demo](https://goo.gle/maps-platform-webgl-travel-demo)
 
 [docs]: https://developers.google.com/maps/documentation/javascript/webgl
-
 
 ## Installation
 
@@ -48,10 +51,7 @@ const mapOptions = {
   tilt: 65
 };
 
-const map = new google.maps.Map(
-  document.querySelector('#map'),
-  mapOptions
-);
+const map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 ```
 
 After that (or before - the order doesn't matter), you can create the
@@ -95,7 +95,6 @@ we'll talk about the world space coordinates and the relation to
 geographic coordinates, about lifecycle hooks and implementing animated
 content, and finally about raycasting and implementing interactive elements.
 
-
 ### Coordinate System and Georeferencing
 
 The coordinate system that you see as world coordinates is a right-handed
@@ -130,7 +129,6 @@ multiple overlay instances or update the reference point (and all objects
 in your scene) depending on the current map-viewport using
 `overlay.setReferencePoint({lat, lng})`.
 
-
 ### Lifecycle Hooks and Animations
 
 Similar to the `WebglOverlayView`, the `ThreejsOverlayView` also provides a
@@ -139,15 +137,15 @@ the overlays' lifecycle. There are three of them - all optional: `onAdd`,
 `update`, and `onRemove`. They all are called without any parameters and
 are not expected to have a return value.
 
- - `onAdd()` can be used to do some final setup of your scene before it
-   gets added to the map.  Be aware that this happens in the rendering
-   lifecycle of the map, so you shouldn't do expensive operations here.
- - `update()` will be called immediately before each render of the map.
-   Here you can update the state of your scene. This is mostly useful in
-   situations where you want to run animations or update the interactive
-   state of your scene.
- - `onRemove()` is symmetrical to onAdd and will be called after the
-   overlay has been removed from the map.
+- `onAdd()` can be used to do some final setup of your scene before it
+  gets added to the map. Be aware that this happens in the rendering
+  lifecycle of the map, so you shouldn't do expensive operations here.
+- `update()` will be called immediately before each render of the map.
+  Here you can update the state of your scene. This is mostly useful in
+  situations where you want to run animations or update the interactive
+  state of your scene.
+- `onRemove()` is symmetrical to onAdd and will be called after the
+  overlay has been removed from the map.
 
 By default, the map uses the energy-efficient approach and only renders a
 new frame when the camera parameters changed. If you want to run
@@ -169,8 +167,6 @@ overlay.update = () => {
 };
 ```
 
-
-
 ### Raycasting and Interactions
 
 If you want to add interactivity to any three.js content, you typically
@@ -186,7 +182,7 @@ import {Vector2} from 'three';
 const mapDiv = map.getDiv();
 const mousePosition = new Vector2();
 
-map.addListener('mousemove', (ev) => {
+map.addListener('mousemove', ev => {
   const {domEvent} = ev;
   const {left, top, width, height} = mapDiv.getBoundingClientRect();
 
@@ -213,18 +209,17 @@ const HIGHLIGHT_COLOR = 0xff0000;
 let highlightedObject = null;
 
 overlay.update = () => {
-    const intersections = overlay.raycast(mousePosition);
-    if (highlightedObject) {
-      highlightedObject.material.color.setHex(DEFAULT_COLOR);
-    }
+  const intersections = overlay.raycast(mousePosition);
+  if (highlightedObject) {
+    highlightedObject.material.color.setHex(DEFAULT_COLOR);
+  }
 
-    if (intersections.length === 0) return;
+  if (intersections.length === 0) return;
 
-    highlightedObject = intersections[0].object;
-    highlightedObject.material.color.setHex(HIGHLIGHT_COLOR);
+  highlightedObject = intersections[0].object;
+  highlightedObject.material.color.setHex(HIGHLIGHT_COLOR);
 };
 ```
-
 
 ## API Reference
 
@@ -234,7 +229,6 @@ details left out for readability reasons.
 We plan to publish full API documentation at some point. Until then, please
 refer to the TypeScript source code or declaration files as well as our
 demos that contain a lot of comments.
-
 
 ## Contributing
 
@@ -247,7 +241,6 @@ a [reproducible example][] so we can quickly address the problem.
 
 [issue tracker]: https://github.com/ubilabs/threejs-overlay-view/issues
 [reproducible example]: https://stackoverflow.com/help/minimal-reproducible-example
-
 
 ### Setting up for Development and Running Examples Locally
 
