@@ -17,3 +17,8 @@ Basically our hello-world example, shows the basic functionality of adding
 ## [wireframe.html](https://ubilabs.github.io/threejs-overlay-view/wireframe.html)
 
 Shows how you can highlight your own buildings by rendering just outside the Google Maps buildings.
+
+## [car.html](https://ubilabs.github.io/threejs-overlay-view/car.html)
+
+This example shows how you can animate a simple gltf-object along a path
+specified in lat/lng coordinates.
