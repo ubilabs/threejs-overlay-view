@@ -21,3 +21,8 @@ Shows how you can highlight your own buildings by rendering just outside the Goo
 ## [video.html](https://ubilabs.github.io/threejs-overlay-view/video.html)
 
 Import an HTML video into the 3D scene with the three.js VideoTexture class.
+
+## [car.html](https://ubilabs.github.io/threejs-overlay-view/car.html)
+
+This example shows how you can animate a simple gltf-object along a path
+specified in lat/lng coordinates.

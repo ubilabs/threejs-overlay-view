@@ -3,24 +3,18 @@ import ThreeJSOverlayView from '@ubilabs/threejs-overlay-view';
 
 import {getMapsApiOptions, loadMapsApi} from '../jsm/load-maps-api';
 
-const initialViewport = {
+const VIEW_PARAMS = {
   center: {
-    lat: 53.5,
-    lng: 10
+    lat: 53.554,
+    lng: 10.007
   },
   tilt: 67.5,
   heading: 60,
-  zoom: 19
+  zoom: 18
 };
 
 async function main() {
-  const {mapId} = getMapsApiOptions();
-  await loadMapsApi();
-
-  const map = new google.maps.Map(document.querySelector('#map'), {
-    mapId,
-    ...initialViewport
-  });
+  const map = await initMap();
 
   const overlay = new ThreeJSOverlayView({
     ...initialViewport.center
@@ -33,10 +27,23 @@ async function main() {
     new MeshStandardMaterial({color: 0xff0000})
   );
 
-  const cubeLocation = {lat: 53.5, lng: 10, altitude: 30};
+  const cubeLocation = {...VIEW_PARAMS.center, altitude: 50};
   overlay.latLngAltToVector3(cubeLocation, cube.position);
 
   scene.add(cube);
+}
+
+async function initMap() {
+  const {mapId} = getMapsApiOptions();
+  await loadMapsApi();
+
+  return new google.maps.Map(document.querySelector('#map'), {
+    mapId,
+    disableDefaultUI: true,
+    backgroundColor: 'transparent',
+    gestureHandling: 'greedy',
+    ...VIEW_PARAMS
+  });
 }
 
 main().catch(err => {

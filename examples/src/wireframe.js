@@ -7,8 +7,7 @@ import {
   ExtrudeGeometry,
   TextureLoader,
   MeshBasicMaterial,
-  PlaneGeometry,
-  Color
+  PlaneGeometry
 } from 'three';
 import {LineSegmentsGeometry} from 'three/examples/jsm/lines/LineSegmentsGeometry';
 import {Line2} from 'three/examples/jsm/lines/Line2.js';
@@ -18,7 +17,7 @@ import ThreeJSOverlayView from '@ubilabs/threejs-overlay-view';
 
 import {getMapsApiOptions, loadMapsApi} from '../jsm/load-maps-api';
 
-const initialViewport = {
+const VIEW_PARAMS = {
   center: {
     lat: 53.55493986295417,
     lng: 10.007137126703523
@@ -42,19 +41,25 @@ const LOGO_ROTATION_Z = Math.PI / 12;
 const COLOR_CHANGE_DURATION = 30; // completes one hue cycle in x seconds
 
 async function main() {
+  const map = await initMap();
+
+  const overlay = new ThreeJSOverlayView(VIEW_PARAMS.center);
+  overlay.setMap(map);
+
+  initScene(overlay).then(() => overlay.requestRedraw());
+}
+
+async function initMap() {
   const {mapId} = getMapsApiOptions();
   await loadMapsApi();
 
-  const mapContainer = document.querySelector('#map');
-  const map = new google.maps.Map(mapContainer, {
+  return new google.maps.Map(document.querySelector('#map'), {
     mapId,
-    ...initialViewport
+    disableDefaultUI: true,
+    backgroundColor: 'transparent',
+    gestureHandling: 'greedy',
+    ...VIEW_PARAMS
   });
-
-  const overlay = new ThreeJSOverlayView(initialViewport.center);
-  overlay.setMap(map);
-
-  initScene(overlay, mapContainer).then(() => overlay.requestRedraw());
 }
 
 async function initScene(overlay) {
@@ -123,7 +128,7 @@ function getWireframe(points) {
   lineGeometry.setPositions(positions);
   const lineMaterial = new LineMaterial({
     color: BUILDING_LINE_COLOR,
-    linewidth: 2
+    linewidth: 3
   });
 
   const line = new Line2(lineGeometry, lineMaterial);
