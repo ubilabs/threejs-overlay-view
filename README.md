@@ -1,4 +1,4 @@
-# ThreejsOverlayView
+# ThreejsOverlayView for Google Maps
 
 A wrapper for `google.maps.WebglOverlayView` that takes care of the
 integration between three.js and the Google Maps JavaScript API. It lets
@@ -32,7 +32,12 @@ npm install @ubilabs/threejs-overlay-view
 
 We provide a set of examples to quickly get you going. Those can be found in
 [`./examples`](./examples). They are also hosted on
-[GitHub Pages](https://ubilabs.github.io/threejs-overlay-view).
+[GitHub Pages](https://ubilabs.github.io/threejs-overlay-view):
+
+* [Simple Cube](https://ubilabs.github.io/threejs-overlay-view/cube.html)
+* [Wireframe Building](https://ubilabs.github.io/threejs-overlay-view/wireframe.html)
+* [Animated Car](https://ubilabs.github.io/threejs-overlay-view/car.html)
+* [Video Texture](https://ubilabs.github.io/threejs-overlay-view/video.html)
 
 ## Usage
 
