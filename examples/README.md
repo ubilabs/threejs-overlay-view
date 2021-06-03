@@ -17,3 +17,7 @@ Basically our hello-world example, shows the basic functionality of adding
 ## [wireframe.html](https://ubilabs.github.io/threejs-overlay-view/wireframe.html)
 
 Shows how you can highlight your own buildings by rendering just outside the Google Maps buildings.
+
+## [video.html](https://ubilabs.github.io/threejs-overlay-view/video.html)
+
+Import an HTML video into the 3D scene with the three.js VideoTexture class.
