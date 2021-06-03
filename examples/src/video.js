@@ -18,7 +18,7 @@ const SCREEN_POSITION = {
 };
 const SCREEN_ROTATION = [Math.PI / 2, 0, Math.PI / 13];
 
-const initialViewport = {
+const VIEW_PARAMS = {
   center: {
     lat: SCREEN_POSITION.lat,
     lng: SCREEN_POSITION.lng
@@ -29,16 +29,10 @@ const initialViewport = {
 };
 
 async function main() {
-  const {mapId} = getMapsApiOptions();
-  await loadMapsApi();
-
-  const map = new google.maps.Map(document.querySelector('#map'), {
-    mapId,
-    ...initialViewport
-  });
+  const map = await initMap();
 
   const overlay = new ThreeJSOverlayView({
-    ...initialViewport.center
+    ...VIEW_PARAMS.center
   });
   overlay.setMap(map);
 
@@ -67,6 +61,19 @@ async function main() {
 
   scene.add(screen);
   overlay.update = () => overlay.requestRedraw();
+}
+
+async function initMap() {
+  const {mapId} = getMapsApiOptions();
+  await loadMapsApi();
+
+  return new google.maps.Map(document.querySelector('#map'), {
+    mapId,
+    disableDefaultUI: true,
+    backgroundColor: 'transparent',
+    gestureHandling: 'greedy',
+    ...VIEW_PARAMS
+  });
 }
 
 main().catch(err => {

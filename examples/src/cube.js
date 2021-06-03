@@ -23,8 +23,7 @@ async function main() {
   });
 
   const overlay = new ThreeJSOverlayView({
-    ...initialViewport.center,
-    altitude: 0
+    ...initialViewport.center
   });
   overlay.setMap(map);
 
