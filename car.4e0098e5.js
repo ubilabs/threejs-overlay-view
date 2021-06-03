@@ -1,2 +1,2 @@
 "noModule"in document.createElement("script")||alert("Your browser does not support modules. Try updating your browser or switch to a different one."),function(){try{const e=document.createElement("canvas");return!!window.WebGLRenderingContext&&(e.getContext("webgl")||e.getContext("experimental-webgl"))}catch(e){return!1}}()||alert("Your browser does not support WebGL. Try updating your browser or switch to a different one.");
-//# sourceMappingURL=cube.182afb60.js.map
+//# sourceMappingURL=car.4e0098e5.js.map
