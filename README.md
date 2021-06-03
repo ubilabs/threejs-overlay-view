@@ -1,4 +1,4 @@
-# ThreejsOverlayView
+# ThreejsOverlayView for Google Maps
 
 A wrapper for `google.maps.WebglOverlayView` that takes care of the
 integration between three.js and the Google Maps JavaScript API. It lets
