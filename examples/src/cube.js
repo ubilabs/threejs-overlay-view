@@ -17,8 +17,7 @@ async function main() {
   const map = await initMap();
 
   const overlay = new ThreeJSOverlayView({
-    ...VIEW_PARAMS.center,
-    altitude: 0
+    ...initialViewport.center
   });
   overlay.setMap(map);
 
