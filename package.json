@@ -27,7 +27,7 @@
   "type": "module",
   "source": "src/index.ts",
   "exports": "./dist/threejs-overlay-view.modern.js",
-  "main": "./dist/threejs-overlay-view.js",
+  "main": "./dist/threejs-overlay-view.cjs",
   "types": "./dist/threejs-overlay-view.d.ts",
   "module": "./dist/threejs-overlay-view.module.js",
   "unpkg": "./dist/threejs-overlay-view.umd.js",
