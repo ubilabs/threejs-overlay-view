@@ -19,16 +19,16 @@ import type {LatLngAltitudeLiteral, RaycastOptions} from './types';
 const projectionMatrixInverse = new Matrix4();
 
 /**
- * A wrapper for google.maps.WebglOverlayView handling the details of the
+ * A wrapper for google.maps.WebGLOverlayView handling the details of the
  * integration with three.js.
  */
 export default class ThreeJSOverlayView {
   /**
-   * The WebglOverlayView instance being used. Aggregation is used instead
+   * The WebGLOverlayView instance being used. Aggregation is used instead
    * of extending the class to allow for this class to be parsed before the
    * google-maps API has been loaded.
    */
-  protected readonly overlay: google.maps.WebglOverlayView;
+  protected readonly overlay: google.maps.WebGLOverlayView;
 
   /**
    * The three.js camera-instance. When interacting with this camera it is
@@ -88,7 +88,7 @@ export default class ThreeJSOverlayView {
     referencePoint: LatLngAltitudeLiteral | google.maps.LatLngLiteral
   ) {
     this.referencePoint = {altitude: 0, ...referencePoint};
-    this.overlay = this.initWebglOverlayView();
+    this.overlay = this.initWebGLOverlayView();
     this.renderer = null;
     this.scene = this.initScene();
     this.camera = new PerspectiveCamera();
@@ -231,7 +231,8 @@ export default class ThreeJSOverlayView {
    * Initializes the threejs-renderer when the rendering-context becomes available.
    * @param gl
    */
-  protected onContextRestored(gl: WebGLRenderingContext) {
+  protected onContextRestored(stateOptions: google.maps.WebGLStateOptions) {
+    const {gl} = stateOptions;
     const mapGlCanvas = gl.canvas as HTMLCanvasElement;
 
     let renderer = new WebGL1Renderer({
@@ -267,10 +268,10 @@ export default class ThreeJSOverlayView {
    * @param gl
    * @param transformer
    */
-  protected onDraw(
-    gl: WebGLRenderingContext,
-    transformer: google.maps.CoordinateTransformer
-  ) {
+
+  protected onDraw(drawOptions: google.maps.WebGLDrawOptions) {
+    const {gl, transformer} = drawOptions;
+
     if (!this.scene || !this.renderer) {
       return;
     }
@@ -324,9 +325,9 @@ export default class ThreeJSOverlayView {
   }
 
   /**
-   * Creates the google.maps.WebglOverlayView instance
+   * Creates the google.maps.WebGLOverlayView instance
    */
-  protected initWebglOverlayView(): google.maps.WebglOverlayView {
+  protected initWebGLOverlayView(): google.maps.WebGLOverlayView {
     if (!google || !google.maps) {
       throw new Error(
         'Google Maps API not loaded. Please make sure to create the ' +
@@ -334,14 +335,14 @@ export default class ThreeJSOverlayView {
       );
     }
 
-    if (!google.maps.WebglOverlayView) {
+    if (!google.maps.WebGLOverlayView) {
       throw new Error(
-        'WebglOverlayView not found. Please make sure to load the ' +
+        'WebGLOverlayView not found. Please make sure to load the ' +
           'beta-channel of the Google Maps API.'
       );
     }
 
-    const overlay = new google.maps.WebglOverlayView();
+    const overlay = new google.maps.WebGLOverlayView();
 
     overlay.onAdd = wrapExceptionLogger(() => {
       if (this.onAdd === null) return;

@@ -1,6 +1,7 @@
 # ThreejsOverlayView for Google Maps
 
-A wrapper for `google.maps.WebglOverlayView` that takes care of the
+WebGLOverlayView
+A wrapper for `google.maps.` that takes care of the
 integration between three.js and the Google Maps JavaScript API. It lets
 you create Google Maps overlays directly with three.js.
 
@@ -9,7 +10,7 @@ you create Google Maps overlays directly with three.js.
 </div>
 
 We recommend that you first make yourself familiar with
-[the official documentation][docs] for the WebglOverlayView. The rest of the
+[the official documentation][docs] for the WebGLOverlayView. The rest of the
 documentation will assume that you know how to load the Google Maps API and
 how to configure and create the map.
 
@@ -34,10 +35,10 @@ We provide a set of examples to quickly get you going. Those can be found in
 [`./examples`](./examples). They are also hosted on
 [GitHub Pages](https://ubilabs.github.io/threejs-overlay-view):
 
-* [Simple Cube](https://ubilabs.github.io/threejs-overlay-view/cube.html)
-* [Wireframe Building](https://ubilabs.github.io/threejs-overlay-view/wireframe.html)
-* [Animated Car](https://ubilabs.github.io/threejs-overlay-view/car.html)
-* [Video Texture](https://ubilabs.github.io/threejs-overlay-view/video.html)
+- [Simple Cube](https://ubilabs.github.io/threejs-overlay-view/cube.html)
+- [Wireframe Building](https://ubilabs.github.io/threejs-overlay-view/wireframe.html)
+- [Animated Car](https://ubilabs.github.io/threejs-overlay-view/car.html)
+- [Video Texture](https://ubilabs.github.io/threejs-overlay-view/video.html)
 
 ## Usage
 
@@ -136,7 +137,7 @@ in your scene) depending on the current map-viewport using
 
 ### Lifecycle Hooks and Animations
 
-Similar to the `WebglOverlayView`, the `ThreejsOverlayView` also provides a
+Similar to the `WebGLOverlayView`, the `ThreejsOverlayView` also provides a
 set of lifecycle hooks that you can define to react to certain events in
 the overlays' lifecycle. There are three of them - all optional: `onAdd`,
 `update`, and `onRemove`. They all are called without any parameters and
