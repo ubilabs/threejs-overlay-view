@@ -1,7 +1,7 @@
 {
   "name": "@ubilabs/threejs-overlay-view",
   "version": "0.6.1",
-  "description": "A wrapper for the Google Maps WebglOverlayView that takes care of the integration between three.js and the Google Maps JavaScript API. It lets you create a Google Maps overlays directly with three.js.",
+  "description": "A wrapper for the Google Maps WebGLOverlayView that takes care of the integration between three.js and the Google Maps JavaScript API. It lets you create a Google Maps overlays directly with three.js.",
   "keywords": [
     "google maps",
     "maps",
@@ -45,7 +45,7 @@
     "three": ">=0.125.0"
   },
   "devDependencies": {
-    "@types/google.maps": "^3.44.5",
+    "@types/google.maps": "^3.47.3",
     "@types/three": "^0.128.0",
     "microbundle": "^0.13.0",
     "prettier": "^2.3.0",
