@@ -283,9 +283,8 @@ export default class ThreeJSOverlayView {
       return;
     }
 
-    const {lat, lng, altitude} = this.referencePoint;
     this.camera.projectionMatrix.fromArray(
-      transformer.fromLatLngAltitude({lat, lng}, altitude)
+      transformer.fromLatLngAltitude(this.referencePoint)
     );
 
     const {width, height} = <HTMLCanvasElement>gl.canvas;
