@@ -45,7 +45,7 @@
     "three": ">=0.125.0"
   },
   "devDependencies": {
-    "@types/google.maps": "^3.47.3",
+    "@types/google.maps": "^3.48.0",
     "@types/three": "^0.128.0",
     "microbundle": "^0.13.0",
     "prettier": "^2.3.0",
