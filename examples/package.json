@@ -1,6 +1,6 @@
 {
-  "name": "@ubilabs/threejs-overlay-view-examples",
-  "version": "1.0.0",
+  "name": "Google Maps NU Hackaton App",
+  "version": "0.0.1",
   "description": "",
   "scripts": {
     "start": "npm run build:index && parcel ./src/*.html",

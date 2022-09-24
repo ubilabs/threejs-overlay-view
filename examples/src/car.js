@@ -11,7 +11,7 @@ import CAR_MODEL_URL from 'url:../assets/lowpoly-sedan.glb';
 const CAR_FRONT = new Vector3(0, 1, 0);
 
 const VIEW_PARAMS = {
-  center: {lat: 53.554486, lng: 10.007479},
+  center: {lat: 27.9744586954417  , lng: 86.9327615931465,},
   zoom: 18,
   heading: 40,
   tilt: 65
@@ -19,16 +19,11 @@ const VIEW_PARAMS = {
 
 const ANIMATION_DURATION = 12000;
 const ANIMATION_POINTS = [
-  {lat: 53.554473, lng: 10.008226},
-  {lat: 53.554913, lng: 10.008124},
-  {lat: 53.554986, lng: 10.007928},
-  {lat: 53.554775, lng: 10.006363},
-  {lat: 53.554674, lng: 10.006383},
-  {lat: 53.554473, lng: 10.006681},
-  {lat: 53.554363, lng: 10.006971},
-  {lat: 53.554453, lng: 10.008091},
-  {lat: 53.554424, lng: 10.008201},
-  {lat: 53.554473, lng: 10.008226}
+  {lat: 27.9744586954417 , lng: 86.9327615931465, alt: 7904.99498543182},
+  {lat: 27.9782944118062, lng: 86.9328289345355, alt: 8030.23562859161 },
+  {lat: 27.9822500528831, lng: 86.9292212536339, alt: 8418.22895971594 },
+  {lat: 27.986113230619, lng: 86.9268117577216, alt: 8667.76702937572 },
+  {lat: 27.9883405300116, lng: 86.9248104014861, alt: 8812.0491622451}
 ];
 
 const mapContainer = document.querySelector('#map');

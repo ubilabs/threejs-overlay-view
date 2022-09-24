@@ -5,8 +5,8 @@ import {getMapsApiOptions, loadMapsApi} from '../jsm/load-maps-api';
 
 const VIEW_PARAMS = {
   center: {
-    lat: 53.554,
-    lng: 10.007
+    lat: 40.7484892471959,
+    lng: -73.9855785714668
   },
   tilt: 67.5,
   heading: 60,
@@ -23,11 +23,11 @@ async function main() {
 
   const scene = overlay.getScene();
   const cube = new Mesh(
-    new BoxGeometry(20, 20, 20),
+    new BoxGeometry(8.67, 14.6, 20),
     new MeshStandardMaterial({color: 0xff0000})
   );
 
-  const cubeLocation = {...VIEW_PARAMS.center, altitude: 50};
+  const cubeLocation = {...VIEW_PARAMS.center, altitude: 89.3808279687458};
   overlay.latLngAltToVector3(cubeLocation, cube.position);
 
   scene.add(cube);
