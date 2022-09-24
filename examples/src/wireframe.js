@@ -139,7 +139,7 @@ function getWireframe(points) {
 function getBuilding(points) {
   const buildingMaterial = new MeshStandardMaterial({
     transparent: true,
-    opacity: 0.5,
+    opacity: 0.2,
     color: BUILDING_FILL_COLOR
   });
 
