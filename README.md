@@ -1,3 +1,8 @@
+> **Please note: this package is no longer maintained.**
+>
+> The official [`@googlemaps/three`](https://www.npmjs.com/package/@googlemaps/three) 
+> package provides even more features, almost the same API and will be further maintained.
+
 # ThreejsOverlayView for Google Maps
 
 A wrapper for `google.maps.WebGLOverlayView` that takes care of the
